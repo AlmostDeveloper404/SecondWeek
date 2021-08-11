@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]float StartSpeed=5f;
     float Speed;
     float shiftSpeed;
-    [SerializeField] float rotationSpeed = 300f;
+    [SerializeField] [Range(0f,300f)]float rotationSpeed;
     float mouseX;
 
 
@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
             Speed = StartSpeed;
         }
 
-        transform.Rotate(new Vector3(0f,mouseX*rotationSpeed,0f));
+        transform.Rotate(new Vector3(0f,mouseX*rotationSpeed*Time.deltaTime,0f));
     }
 
     private void FixedUpdate()
