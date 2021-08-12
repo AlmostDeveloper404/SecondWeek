@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]float StartSpeed=5f;
     float Speed;
     float shiftSpeed;
-    [SerializeField] [Range(0f,300f)]float rotationSpeed;
+    [SerializeField] [Range(0.1f,10)]float rotationSpeed;
     float mouseX;
 
 
@@ -15,7 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody =GetComponent<Rigidbody>();
+        
     }
 
     private void Start()
@@ -41,7 +42,8 @@ public class PlayerMovement : MonoBehaviour
             Speed = StartSpeed;
         }
 
-        transform.Rotate(new Vector3(0f,mouseX*rotationSpeed*Time.deltaTime,0f));
+        transform.Rotate(new Vector3(0f,mouseX*rotationSpeed,0f));
+        
     }
 
     private void FixedUpdate()
